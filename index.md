@@ -35,7 +35,7 @@ The user may select the NotSoSuperSleep(TM) drug or the SuperSleep(TM) drug, and
 
 The algorithm takes the mean amount of extra sleep that participants from two empirical samples had after taking one of two different drugs (see help(sleep) in R for details).
 
-The means are then divided by a 'wrong side' factor (2) and a 'right side' factor (1/2).
+The means are then divided by either a 'wrong side' factor (2) or a 'right side' factor (1/2).
 
 The algorithm spits out the predicted happiness for each of the 4 circumstances. Please note that a higher prediction refers to more happiness.
 

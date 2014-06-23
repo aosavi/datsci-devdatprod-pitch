@@ -53,15 +53,15 @@ side <- "Wrong side"
 
 
 ```r
-# data(sleep)
-# expHappiness <- function(drug, side) {
-#         if(drug=="NotSoSuperSleep(TM)") drug <- 1
-#         if(drug=="SuperSleep(TM)") drug <- 2
-#         if(side=="Wrong side") side <- 2
-#         if(side=="Right side") side <- 1/2
-#         mean(sleep[sleep[,"group"]==drug, "extra"]) / side
-# }
-# pred <- expHappiness(drug, side)
+data(sleep)
+expHappiness <- function(drug, side) {
+        if(drug=="NotSoSuperSleep(TM)") drug <- 1
+        if(drug=="SuperSleep(TM)") drug <- 2
+        if(side=="Wrong side") side <- 2
+        if(side=="Right side") side <- 1/2
+        mean(sleep[sleep[,"group"]==drug, "extra"]) / side
+}
+pred <- expHappiness(drug, side)
 ```
 
-The predicted happiness the following day is a rather suboptimal .
+The predicted happiness the following day is a rather suboptimal 1.165.

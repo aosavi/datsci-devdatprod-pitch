@@ -1,2 +1,7 @@
 base
+devtools
+knitr
 MASS
+shiny
+shinyapps
+slidify

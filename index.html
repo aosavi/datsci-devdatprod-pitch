@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Predicting Happpiness</title>
+  <title>Predicting Happiness</title>
   <meta charset="utf-8">
-  <meta name="description" content="Predicting Happpiness">
+  <meta name="description" content="Predicting Happiness">
   <meta name="author" content="Alexander Savi">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,7 +32,7 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1>Predicting Happpiness</h1>
+    <h1>Predicting Happiness</h1>
     <h2>Pitch for course project Data Science - Developing Data Products</h2>
     <p>Alexander Savi<br/></p>
   </hgroup>
@@ -43,41 +43,73 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Slide 1</h2>
+    <h2>Disclaimer</h2>
   </hgroup>
   <article data-timings="">
-    <p>Hello.</p>
+    <p>This presentation is part of a project for the Data Science Developing Data Products track from Coursera.</p>
+
+<p>The course can be found at: <a href="https://class.coursera.org/devdataprod-002">https://class.coursera.org/devdataprod-002</a></p>
+
+<p>The Shiny app this pitch refers to can be found at: <a href="https://aosavi.shinyapps.io/datsci-devdatprod/">https://aosavi.shinyapps.io/datsci-devdatprod/</a></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="class" id="id" style="background:;">
+<slide class="" id="slide-2" style="background:;">
   <hgroup>
-    <h2>Slide 2</h2>
+    <h2>Shiny app</h2>
   </hgroup>
   <article data-timings="">
-    
+    <p>A Shiny app was built and hosted on shinyapps.io, see <a href="https://aosavi.shinyapps.io/datsci-devdatprod/">https://aosavi.shinyapps.io/datsci-devdatprod/</a></p>
+
+<p>This app uses a `state-of-the-art&#39; algorithm to quantify happiness as a result of a sleep drug taken and the side of the bed one gets out.</p>
+
+<p>The user may select the NotSoSuperSleep(TM) drug or the SuperSleep(TM) drug, and the wrong or the right side of the bed. From these to predictors an &#39;insanely accurate&#39; prediction of happiness (informal studies) is calculated.</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-3" style="background:;">
   <hgroup>
-    <h2>Slide 3</h2>
+    <h2>Technology</h2>
   </hgroup>
   <article data-timings="">
-    
+    <p>The algorithm takes the mean amount of extra sleep that participants from two empirical samples had after taking one of two different drugs (see help(sleep) in R for details).</p>
+
+<p>The means are then divided by a &#39;wrong side&#39; factor (2) and a &#39;right side&#39; factor (1/2).</p>
+
+<p>The algorithm spits out the predicted happiness for each of the 4 circumstances. Please note that a higher prediction refers to more happiness.</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-4" style="background:;">
   <hgroup>
-    <h2>Slide 4</h2>
+    <h2>Example</h2>
   </hgroup>
   <article data-timings="">
-    
+    <p>An example prediction is shown here, where the SuperSleep(TM) drug is taken, but unfortunately the wrong side of the bed was used.</p>
+
+<pre><code class="r">drug &lt;- &quot;SuperSleep(TM)&quot;
+side &lt;- &quot;Wrong side&quot;
+</code></pre>
+
+<pre><code class="r">data(sleep)
+expHappiness &lt;- function(drug, side) {
+        if(drug==&quot;NotSoSuperSleep(TM)&quot;) drug &lt;- 1
+        if(drug==&quot;SuperSleep(TM)&quot;) drug &lt;- 2
+        if(side==&quot;Wrong side&quot;) side &lt;- 2
+        if(side==&quot;Right side&quot;) side &lt;- 1/2
+        mean(sleep[sleep[,&quot;group&quot;]==drug, &quot;extra&quot;]) / side
+}
+pred &lt;- expHappiness(drug, side)
+</code></pre>
+
+<p>The predicted happiness the following day is a rather suboptimal 1.165.</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -88,25 +120,25 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Slide 1'>
+        data-slide=1 title='Disclaimer'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 2'>
+        data-slide=2 title='Shiny app'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Slide 3'>
+        data-slide=3 title='Technology'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Slide 4'>
+        data-slide=4 title='Example'>
          4
       </a>
     </li>
